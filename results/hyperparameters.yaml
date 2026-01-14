@@ -1,0 +1,26 @@
+
+training_config:
+  epochs: 100
+  batch_size: 32
+  initial_learning_rate: 0.01
+  optimizer: "Adam"
+  loss_function: "CrossEntropyLoss"
+  early_stopping_patience: 5
+
+scheduler_config:
+  type: "ReduceLROnPlateau"
+  mode: "min"
+  factor: 0.5
+  patience: 2
+
+augmentation_config:
+  type: "Gaussian Noise Injection"
+  noise_level: 0.005
+  domain: "Landmarks (Geometric Coordinates)"
+
+model_architecture:
+  type: "MLP (Multi-Layer Perceptron)"
+  input_size: 63
+  hidden_layers: [128, 64]
+  output_classes: 4
+  dropout_rate: 0.2
