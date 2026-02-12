@@ -1,0 +1,46 @@
+ROS-only dependencies (system-level, not in requirements.txt)
+
+The project imports the following ROS 2 packages which are not installed via pip:
+
+- rclpy
+- cv_bridge
+- geometry_msgs
+- sensor_msgs
+
+These are provided by a ROS 2 installation and should be installed using your OS package manager
+or built from source for your ROS 2 distribution. They are intentionally not added to `requirements.txt`.
+
+Quick install notes (Debian/Ubuntu, replace <ros-distro> with your distro, e.g. humble, iron):
+
+1) Install ROS 2 following the official instructions for your platform (desktop or base install).
+
+2) Update apt and install common ROS packages:
+
+   sudo apt update
+   sudo apt install -y ros-<ros-distro>-desktop
+
+3) Install the ROS Python and message packages used by this project:
+
+   sudo apt install -y \
+     ros-<ros-distro>-rclpy \
+     ros-<ros-distro>-cv-bridge \
+     ros-<ros-distro>-geometry-msgs \
+     ros-<ros-distro>-sensor-msgs
+
+4) Source the ROS setup script before running the app (or add it to your shell rc):
+
+   source /opt/ros/<ros-distro>/setup.bash
+
+Notes and troubleshooting:
+- If you're using a Python virtual environment, either run the app with the system Python
+  (so ROS-provided packages are available), or configure the venv to include system site
+  packages (`python -m venv --system-site-packages venv`).
+- `cv_bridge` may require building from source on some platforms; prefer installing the
+  binary package via apt when available.
+- If you need help for a specific ROS 2 distro or OS, update this file or open an issue.
+
+How to run the Streamlit app with ROS sourced (example):
+
+   source /opt/ros/<ros-distro>/setup.bash
+   pip install -r requirements.txt   # installs Python deps from requirements.txt
+   streamlit run src/app/main.py
