@@ -483,10 +483,6 @@ Dacă aș reîncepe proiectul, aș colecta date suplimentare pentru stările tra
 7. Scikit-learn Documentation, Pedregosa et al., 2011. https://scikit-learn.org/
  
 
-**Exemple format:**
-- Abaza, B., 2025. AI-Driven Dynamic Covariance for ROS 2 Mobile Robot Localization. Sensors, 25, 3026. https://doi.org/10.3390/s25103026
-- Keras Documentation, 2024. Getting Started Guide. https://keras.io/getting_started/
-
 ---
 
 ## 12. Checklist Final (Auto-verificare înainte de predare)
