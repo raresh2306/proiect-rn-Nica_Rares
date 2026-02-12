@@ -419,7 +419,29 @@ source venv/bin/activate        # Linux/Mac
 # sau: venv\Scripts\activate    # Windows
 
 # 3. Instalare dependențe
-pip install -r requirements.txt
+ pip install -r requirements.txt
+ 
+# 4. Pornire robot (pe sistemul robotului)
+# (Aceste comenzi se rulează pe robot, nu pe PC-ul de dezvoltare)
+ 
+# 5. Conectare din terminal via SSH la robot
+ssh pi@<IP_ROBOT>
+ 
+# 6. Navigare în directorul SAIM
+cd saim_xplorer
+ 
+# 7. Setup mediului ROS2
+source install/setup.bash
+ 
+# 8. Lansare noduri ROS2 pentru robot
+ros2 launch xplorer_bringup robot.launch.py
+ 
+# 9. Din terminalul proiectului (PC-ul de dezvoltare) rulare aplicație UI
+streamlit run src/app/main.py
+```
+ 
+**Notă importantă:** Pașii 4-8 se execută pe robotul fizic, în timp ce pasul 9 se execută pe PC-ul de dezvoltare pentru interfața de control gestual.
+
 ```
 
 ## 10. Concluzii și Discuții
